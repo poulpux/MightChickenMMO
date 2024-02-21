@@ -1,4 +1,4 @@
-using Firebase.Storage;
+//using Firebase.Storage;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,56 +14,56 @@ public partial class ConnectWindow
     private async Task ExploreFirebaseStorageAsync(string fileStoragePath, bool perso = false)
     {
         // Obtiens une référence au fichier dans Firebase Storage
-        StorageReference fileRef = storage.GetReference(fileStoragePath);
-        if (fileStoragePath[fileStoragePath.Length - 1] != '/')
-        {
-            try
-            {
-                if (fileStoragePath == "BlueLineImport/FireStoreStorage/BlueLineImport.txt")
-                {
-                    var downloadUrl = await fileRef.GetDownloadUrlAsync();
-                    int counter = NombreCaracteresAvantSlash(fileStoragePath);
-                    await DownloadFile(downloadUrl.ToString(), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/" + fileStoragePath.Remove(fileStoragePath.Length - counter - 1), perso);
-                }
+        //StorageReference fileRef = storage.GetReference(fileStoragePath);
+        //if (fileStoragePath[fileStoragePath.Length - 1] != '/')
+        //{
+        //    try
+        //    {
+        //        if (fileStoragePath == "BlueLineImport/FireStoreStorage/BlueLineImport.txt")
+        //        {
+        //            var downloadUrl = await fileRef.GetDownloadUrlAsync();
+        //            int counter = NombreCaracteresAvantSlash(fileStoragePath);
+        //            await DownloadFile(downloadUrl.ToString(), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/" + fileStoragePath.Remove(fileStoragePath.Length - counter - 1), perso);
+        //        }
 
-                if ((!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/" + fileStoragePath)&& !perso )|| !File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/BlueLineImport/BlueLinePerso/" + fileStoragePath.Substring("BlueLinePerso//".Length + auth.CurrentUser.UserId.Length)) && perso)
-                {
-                    // Obtient l'URL de téléchargement pour le fichier
-                    var downloadUrl = await fileRef.GetDownloadUrlAsync();
-                    int counter = NombreCaracteresAvantSlash(fileStoragePath);
-                    string a = fileStoragePath[fileStoragePath.Length - 1].ToString();
-                    if (!perso)
-                    {
-                        await DownloadFile(downloadUrl.ToString(), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/" + fileStoragePath.Remove(fileStoragePath.Length - counter - 1), perso);
-                    }
-                    else
-                    {
-                        string realPath = fileStoragePath.Substring("BlueLinePerso//".Length + auth.CurrentUser.UserId.Length);
+        //        if ((!File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/" + fileStoragePath)&& !perso )|| !File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/BlueLineImport/BlueLinePerso/" + fileStoragePath.Substring("BlueLinePerso//".Length + auth.CurrentUser.UserId.Length)) && perso)
+        //        {
+        //            // Obtient l'URL de téléchargement pour le fichier
+        //            var downloadUrl = await fileRef.GetDownloadUrlAsync();
+        //            int counter = NombreCaracteresAvantSlash(fileStoragePath);
+        //            string a = fileStoragePath[fileStoragePath.Length - 1].ToString();
+        //            if (!perso)
+        //            {
+        //                await DownloadFile(downloadUrl.ToString(), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/" + fileStoragePath.Remove(fileStoragePath.Length - counter - 1), perso);
+        //            }
+        //            else
+        //            {
+        //                string realPath = fileStoragePath.Substring("BlueLinePerso//".Length + auth.CurrentUser.UserId.Length);
 
-                        if (fileStoragePath.EndsWith("BlueLinePerso.txt"))
-                            await DownloadFile(downloadUrl.ToString(), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/BlueLineImport/FireStoreStorage");
-                        else
-                            await DownloadFile(downloadUrl.ToString(), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/BlueLineImport/BlueLinePerso/" + fileStoragePath.Substring("BlueLinePerso//".Length + auth.CurrentUser.UserId.Length), perso);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.LogWarning("erreur : " + fileStoragePath);
-                Debug.LogError("Erreur lors de la récupération de l'URL de téléchargement : " + ex.Message);
-            }
-        }
-        else
-        {
-            if (!perso)
-            {
-                Directory.CreateDirectory(BlueLineImportAdress + "/" + fileStoragePath.Substring("BlueLineImport/".Length));
-            }
-            else
-            {
-                Directory.CreateDirectory(BlueLineImportAdress + "/BlueLinePerso/" + fileStoragePath.Substring("BlueLinePerso/".Length  + auth.CurrentUser.UserId.Length + 1));
-            }
-        }
+        //                if (fileStoragePath.EndsWith("BlueLinePerso.txt"))
+        //                    await DownloadFile(downloadUrl.ToString(), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/BlueLineImport/FireStoreStorage");
+        //                else
+        //                    await DownloadFile(downloadUrl.ToString(), Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "/BlueLineImport/BlueLinePerso/" + fileStoragePath.Substring("BlueLinePerso//".Length + auth.CurrentUser.UserId.Length), perso);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.LogWarning("erreur : " + fileStoragePath);
+        //        Debug.LogError("Erreur lors de la récupération de l'URL de téléchargement : " + ex.Message);
+        //    }
+        //}
+        //else
+        //{
+        //    if (!perso)
+        //    {
+        //        Directory.CreateDirectory(BlueLineImportAdress + "/" + fileStoragePath.Substring("BlueLineImport/".Length));
+        //    }
+        //    else
+        //    {
+        //        Directory.CreateDirectory(BlueLineImportAdress + "/BlueLinePerso/" + fileStoragePath.Substring("BlueLinePerso/".Length  + auth.CurrentUser.UserId.Length + 1));
+        //    }
+        //}
     }
 
     static int NombreCaracteresAvantSlash(string texte)

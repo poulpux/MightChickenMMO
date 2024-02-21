@@ -31,6 +31,27 @@ public class testRealTimeFireBase : MonoBehaviour
 
     public void LoadDataFn()
     {
+        StartCoroutine(LoadDataEnum());
+    }
 
+    IEnumerator LoadDataEnum()
+    {
+        var serverData = dbRef.Child("users").Child(userId).GetValueAsync();
+        yield return new WaitUntil(predicate: () => serverData.IsCompleted);
+
+        print("processs is complete");
+
+        DataSnapshot snapshot = serverData.Result;
+        string jsonData = snapshot.GetRawJsonValue();
+
+        if(jsonData != null)
+        {
+            print("data found");
+            dts = JsonUtility.FromJson<dataToSave>(jsonData);
+        }
+        else
+        {
+            print("NO data found");
+        }
     }
 }
