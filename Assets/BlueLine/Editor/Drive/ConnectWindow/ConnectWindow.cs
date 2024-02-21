@@ -22,7 +22,7 @@ public  partial class ConnectWindow : ToolsGF
     string visuPassword;
     string savePasseWord;
 
-    [MenuItem("BlueLine/Connecting", false, 1)]
+    //[MenuItem("BlueLine/Connecting", false, 1)]
     public static void WindowConnect()
     {
         _window = CreateWindow(ref _window, "Connecting");
