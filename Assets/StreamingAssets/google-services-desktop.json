@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "867354713004",
+    "project_id": "blueline-76c39",
+    "storage_bucket": "blueline-76c39.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867354713004:android:535042437a8a678bfaf809",
+        "android_client_info": {
+          "package_name": "BlueLine.Import"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcRane8njH_3FCxhY6lokOGOemmpUPJy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
