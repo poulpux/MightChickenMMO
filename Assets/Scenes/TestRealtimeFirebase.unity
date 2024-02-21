@@ -795,10 +795,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dts:
-    userName: 0
-    totalCoins: 0
-    crrLevel: 0
-    hightScore: 0
+    userName: 5
+    totalCoins: 55
+    crrLevel: 55
+    hightScore: 5
+    objects: 090000000900000009000000
+  familier:
+    nbFamilier: 2
   userId: user001
 --- !u!1 &1126870757
 GameObject:
