@@ -6,21 +6,31 @@ using UnityEngine;
 public partial class ChickenStocks : StateManager
 {
 
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override void Start()
     {
         base.Start();
 
-        wait.InitState(onWaitEnter, onWaitUpdate, onWaitExit); 
-        jump.InitState(onJumpEnter, onJumpUpdate, onJumpExit); 
-        getUp.InitState(onGetUpEnter, onGetUpUpdate, onGetUpExit); 
-        basicAttack.InitState(onBasicAttackEnter, onBasicAttackUpdate, onBasicAttackExit); 
-        skill1.InitState(onSkill1Enter, onSkill1Update, onSkill1Exit); 
-        skill2.InitState(onSkill2Enter, onSkill2Update, onSkill2Exit); 
+        wait.InitState(onWaitEnter, onWaitUpdate,onWaitFixedUpdate, onWaitExit); 
+        jump.InitState(onJumpEnter, onJumpUpdate,onJumpFixedUpdate, onJumpExit); 
+        getUp.InitState(onGetUpEnter, onGetUpUpdate,onGetUpFixedUpdate, onGetUpExit); 
+        basicAttack.InitState(onBasicAttackEnter, onBasicAttackUpdate,onBasicAttackFixedUpdate, onBasicAttackExit); 
+        skill1.InitState(onSkill1Enter, onSkill1Update,onSkill1FixedUpdate, onSkill1Exit); 
+        skill2.InitState(onSkill2Enter, onSkill2Update,onSkill2FixedUpdate, onSkill2Exit); 
         ForcedCurrentState(wait);
     }
 
     protected override void Update()
     {
         base.Update();
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
     }
 }

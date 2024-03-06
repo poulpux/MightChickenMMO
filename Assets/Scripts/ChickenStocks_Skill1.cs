@@ -14,6 +14,10 @@ public partial class ChickenStocks
     {
 
     }
+    private void onSkill1FixedUpdate()
+    {
+
+    }
 
     private void onSkill1Exit()
     {
