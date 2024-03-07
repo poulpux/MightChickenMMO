@@ -15,7 +15,6 @@ public partial class ChickenStocks : StateManager
         base.Start();
 
         InstantiateAll();
-        AllEvent();
     }
 
     protected override void Update()
@@ -37,10 +36,5 @@ public partial class ChickenStocks : StateManager
         skill1.InitState(onSkill1Enter, onSkill1Update, onSkill1FixedUpdate, onSkill1Exit);
         skill2.InitState(onSkill2Enter, onSkill2Update, onSkill2FixedUpdate, onSkill2Exit);
         ForcedCurrentState(wait);
-    }
-
-    private void AllEvent()
-    {
-        
     }
 }

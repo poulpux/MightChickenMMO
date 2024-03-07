@@ -6,20 +6,20 @@ public partial class ChickenStocks
 {
     State basicAttack = new State();
 
-    private void onBasicAttackEnter()
+    protected virtual void onBasicAttackEnter()
     {
        
     }
-    private void onBasicAttackUpdate()
+    protected virtual void onBasicAttackUpdate()
     {
 
     }
-    private void onBasicAttackFixedUpdate()
+    protected virtual void onBasicAttackFixedUpdate()
     {
 
     }
 
-    private void onBasicAttackExit()
+    protected virtual void onBasicAttackExit()
     {
 
     }

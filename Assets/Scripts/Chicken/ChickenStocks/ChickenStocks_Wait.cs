@@ -6,20 +6,20 @@ public partial class ChickenStocks
 {
     State wait = new State();
 
-    private void onWaitEnter()
+    protected virtual void onWaitEnter()
     {
        
     }
-    private void onWaitUpdate()
+    protected virtual void onWaitUpdate()
     {
 
     }
-    private void onWaitFixedUpdate()
+    protected virtual void onWaitFixedUpdate()
     {
 
     }
 
-    private void onWaitExit()
+    protected virtual void onWaitExit()
     {
 
     }
