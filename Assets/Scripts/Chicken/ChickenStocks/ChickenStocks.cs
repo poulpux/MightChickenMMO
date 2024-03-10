@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,19 +51,20 @@ public partial class ChickenStocks : StateManager
 
     protected void LookAtEnnemy()
     {
-        Vector3 direction = target.transform.position - transform.position;
+        //Vector3 direction = target.transform.position - transform.position;
 
-        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        //Quaternion targetRotation = Quaternion.LookRotation(direction);
 
         float multiplyAngle = transform.eulerAngles.y > 0 ? 0.1f : -0.1f;
-        float modifEulerY = targetRotation.eulerAngles.y > 180f ? 180f - targetRotation.eulerAngles.y : targetRotation.eulerAngles.y;
-        Vector3 futurEuler = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, modifEulerY * multiplyAngle);
-        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, futurEuler, spdRotation);
+        //float modifEulerY = targetRotation.eulerAngles.y > 180f ? 180f - targetRotation.eulerAngles.y : targetRotation.eulerAngles.y;
+        Vector3 futurEuler = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y,  multiplyAngle);
+        transform.eulerAngles = /*Vector3.Lerp(transform.eulerAngles, */futurEuler/*, spdRotation)*/;
+        //float a =  Mathf.Round( transform.eulerAngles.y);
     }
 
     private void FlipFromEnnemy()
     {
-        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(transform.eulerAngles.x, CherchSideToFlip(), transform.eulerAngles.z), timeToFlip);
+        transform.eulerAngles =/* Vector3.Lerp(transform.eulerAngles,*/ new Vector3(transform.eulerAngles.x, CherchSideToFlip(), transform.eulerAngles.z)/*, timeToFlip)*/;
     }
 
     private float CherchSideToFlip()
