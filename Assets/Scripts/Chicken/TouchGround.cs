@@ -10,7 +10,7 @@ public class TouchGround : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer != LayerMask.NameToLayer("Chicken"))
+        //if (collision.gameObject.layer != LayerMask.NameToLayer("Chicken"))
             touchGroundEvent.Invoke();
     }
 }

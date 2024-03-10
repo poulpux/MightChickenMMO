@@ -2,19 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[RequireComponent(typeof(Rigidbody2D))]
 public partial class ChickenStocks : StateManager
 {
+    private GameObject target;
+    private Rigidbody2D rb;
     protected override void Awake()
     {
         base.Awake();
+
+        InstantiateAll();
     }
 
     protected override void Start()
     {
         base.Start();
-
-        InstantiateAll();
     }
 
     protected override void Update()
@@ -36,5 +38,8 @@ public partial class ChickenStocks : StateManager
         skill1.InitState(onSkill1Enter, onSkill1Update, onSkill1FixedUpdate, onSkill1Exit);
         skill2.InitState(onSkill2Enter, onSkill2Update, onSkill2FixedUpdate, onSkill2Exit);
         ForcedCurrentState(wait);
+
+        target = GameObject.Find(name == "Chicken1" ? "Chicken2" : "Chicken1");
+        rb = target.GetComponent<Rigidbody2D>();    
     }
 }

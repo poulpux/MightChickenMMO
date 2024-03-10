@@ -16,6 +16,8 @@ public class ChickenJump : MonoBehaviour
 
     private void Jump(Rigidbody2D rb)
     {
-        rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+        //Calculate the x direction
+        float x = transform.eulerAngles.z > 180f ? (180f - rb.transform.eulerAngles.z) / 180f : rb.transform.eulerAngles.z / 180f;
+        rb.AddForce(new Vector2(-x * jumpForce, jumpForce), ForceMode2D.Impulse);
     }
 }
