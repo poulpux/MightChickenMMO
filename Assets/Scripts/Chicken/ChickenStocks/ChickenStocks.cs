@@ -52,14 +52,12 @@ public partial class ChickenStocks : StateManager
     protected void LookAtEnnemy()
     {
         float multiplyAngle = transform.eulerAngles.y > 0 ? 0.1f : -0.1f;
-        //transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, multiplyAngle);
-
         transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, multiplyAngle), 0.2f * Time.deltaTime);
     }
 
     private void FlipFromEnnemy()
     {
-        transform.eulerAngles =/* Vector3.Lerp(transform.eulerAngles,*/ new Vector3(transform.eulerAngles.x, CherchSideToFlip(), transform.eulerAngles.z)/*, timeToFlip)*/;
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, CherchSideToFlip(), transform.eulerAngles.z);
     }
 
     private float CherchSideToFlip()
