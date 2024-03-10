@@ -51,7 +51,6 @@ public partial class ChickenStocks : StateManager
 
     protected void LookAtEnnemy()
     {
-        float multiplyAngle = transform.eulerAngles.y > 0 ? 0.1f : -0.1f;
         transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f), 0.2f * Time.deltaTime);
     }
 
