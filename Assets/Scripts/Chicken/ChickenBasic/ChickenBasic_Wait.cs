@@ -13,12 +13,12 @@ public partial class ChickenBasic
     protected override void onWaitUpdate()
     {
         base.onWaitUpdate();
-
-        LookAtEnnemy();
     }
     protected override void onWaitFixedUpdate()
     {
         base.onWaitFixedUpdate();
+
+        LookAtEnnemy();
     }
 
     protected override void onWaitExit()

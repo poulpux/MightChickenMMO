@@ -10,7 +10,7 @@ public partial class ChickenStocks : StateManager
 
     [Header("======Stats======")]
     [Space(10)]
-    [SerializeField] float spdRotation; 
+    [SerializeField] float spdRotation, timeToFlip; 
     protected override void Awake()
     {
         base.Awake();
@@ -31,12 +31,13 @@ public partial class ChickenStocks : StateManager
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
+
+        FlipFromEnnemy();
     }
 
     private void InstantiateAll()
     {
         wait.InitState(onWaitEnter, onWaitUpdate, onWaitFixedUpdate, onWaitExit);
-        //jump.InitState(onJumpEnter, onJumpUpdate, onJumpFixedUpdate, onJumpExit);
         getUp.InitState(onGetUpEnter, onGetUpUpdate, onGetUpFixedUpdate, onGetUpExit);
         basicAttack.InitState(onBasicAttackEnter, onBasicAttackUpdate, onBasicAttackFixedUpdate, onBasicAttackExit);
         skill1.InitState(onSkill1Enter, onSkill1Update, onSkill1FixedUpdate, onSkill1Exit);
@@ -45,5 +46,27 @@ public partial class ChickenStocks : StateManager
 
         target = GameObject.Find(name == "Chicken1" ? "Chicken2" : "Chicken1");
         rb = target.GetComponent<Rigidbody2D>();    
+    }
+
+    protected void LookAtEnnemy()
+    {
+        Vector3 direction = target.transform.position - transform.position;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        float multiplyAngle = transform.eulerAngles.y > 0 ? 0.1f : -0.1f;
+        float modifEulerY = targetRotation.eulerAngles.y > 180f ? 180f - targetRotation.eulerAngles.y : targetRotation.eulerAngles.y;
+        Vector3 futurEuler = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, modifEulerY * multiplyAngle);
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, futurEuler, spdRotation);
+    }
+
+    private void FlipFromEnnemy()
+    {
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(transform.eulerAngles.x, CherchSideToFlip(), transform.eulerAngles.z), timeToFlip);
+    }
+
+    private float CherchSideToFlip()
+    {
+        return target.transform.position.x < transform.position.x ? 180f : 0f;
     }
 }
