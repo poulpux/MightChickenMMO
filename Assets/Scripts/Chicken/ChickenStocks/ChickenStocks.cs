@@ -51,15 +51,10 @@ public partial class ChickenStocks : StateManager
 
     protected void LookAtEnnemy()
     {
-        //Vector3 direction = target.transform.position - transform.position;
-
-        //Quaternion targetRotation = Quaternion.LookRotation(direction);
-
         float multiplyAngle = transform.eulerAngles.y > 0 ? 0.1f : -0.1f;
-        //float modifEulerY = targetRotation.eulerAngles.y > 180f ? 180f - targetRotation.eulerAngles.y : targetRotation.eulerAngles.y;
-        Vector3 futurEuler = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y,  multiplyAngle);
-        transform.eulerAngles = /*Vector3.Lerp(transform.eulerAngles, */futurEuler/*, spdRotation)*/;
-        //float a =  Mathf.Round( transform.eulerAngles.y);
+        //transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, multiplyAngle);
+
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, multiplyAngle), 0.2f * Time.deltaTime);
     }
 
     private void FlipFromEnnemy()
