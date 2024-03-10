@@ -7,6 +7,10 @@ public partial class ChickenStocks : StateManager
 {
     private GameObject target;
     private Rigidbody2D rb;
+
+    [Header("======Stats======")]
+    [Space(10)]
+    [SerializeField] float spdRotation; 
     protected override void Awake()
     {
         base.Awake();

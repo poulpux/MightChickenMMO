@@ -26,20 +26,13 @@ public partial class ChickenStocks
 
     protected void LookAtEnnemy()
     {
-        Vector3 targetDirection = target.transform.position - transform.position;
+        Vector3 direction = target.transform.position - transform.position;
 
-        if (targetDirection != Vector3.zero)
-        {
-            Vector3 targetRotation = Quaternion.LookRotation(targetDirection).eulerAngles;
-            //Vector3 newEUler = Quaternion.Lerp(transform.rotation, targetRotation, 5f * Time.deltaTime).eulerAngles;
-            //Debug.Log(newEUler);
-            transform.eulerAngles = new Vector3(0f, 0f, -(180f-targetRotation.y)  *0.1f);
-            
-            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
-        }
-        ////Calculate the x direction
-        //float x = transform.eulerAngles.z > 180f ? (180f - rb.transform.eulerAngles.z) : rb.transform.eulerAngles.z ;
-        //Vector3.Lerp(transform.eulerAngles, new Vector3(0f,0f,x))
-        //transform.Rotate(new Vector3(0f, 0f, 1), x);
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+
+        float multiplyAngle = -0.1f;
+        float modifEulerY = targetRotation.eulerAngles.y > 180f ? 180f - targetRotation.eulerAngles.y : targetRotation.eulerAngles.y;  
+        Vector3 futurEuler = new Vector3(0f, 0f, modifEulerY * multiplyAngle);
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, futurEuler, spdRotation);
     }
 }
