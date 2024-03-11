@@ -380,10 +380,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54ac3d44c9d05245982435dbe4ef792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 11400000, guid: dbfac9f860e58d647ac9bb07c1d476e4, type: 2}
+  stats: {fileID: 0}
   rotationSpd: 0.2
   eyeRotator: {fileID: 1328520801}
   leg: {fileID: 856498514}
+  rb: {fileID: 0}
   target: {fileID: 0}
 --- !u!4 &569254699
 Transform:
@@ -1052,10 +1053,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54ac3d44c9d05245982435dbe4ef792, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 11400000, guid: dbfac9f860e58d647ac9bb07c1d476e4, type: 2}
+  stats: {fileID: 0}
   rotationSpd: 0.2
   eyeRotator: {fileID: 2061985350}
   leg: {fileID: 1725342734}
+  rb: {fileID: 0}
   target: {fileID: 0}
 --- !u!114 &1705717056
 MonoBehaviour:

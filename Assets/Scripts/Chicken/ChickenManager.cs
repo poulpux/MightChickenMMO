@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEngine.GraphicsBuffer;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent (typeof(SpriteRenderer))]
 [RequireComponent (typeof(CircleCollider2D))]
 public class ChickenManager : MonoBehaviour
 {
-    public ChickenObject manager;
+    public ChickenObject stats;
     [Header("======Stats======")]
     [Space(10)]
     public float rotationSpd = 0.2f;
@@ -19,7 +18,7 @@ public class ChickenManager : MonoBehaviour
     public GameObject eyeRotator;
     public GameObject leg;
 
-
+    [HideInInspector] public Rigidbody2D rb;
     [HideInInspector] public GameObject target;
     void Awake()
     {
@@ -28,14 +27,14 @@ public class ChickenManager : MonoBehaviour
 
     private void AssignVariablesAndValues()
     {
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.mass = manager.weight;
-        rb.gravityScale = manager.gravType == GRAVITYFEEL.HOVERS ? 0.5f : 1.0f;
+        rb = GetComponent<Rigidbody2D>();
+        rb.mass = stats.weight;
+        rb.gravityScale = stats.gravType == GRAVITYFEEL.HOVERS ? 0.5f : 1.0f;
 
-        transform.localScale = Vector3.one * manager.radius;
+        transform.localScale = Vector3.one * stats.radius;
 
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = manager.sprite!= null ? manager.sprite : spriteRenderer.sprite;
+        spriteRenderer.sprite = stats.sprite!= null ? stats.sprite : spriteRenderer.sprite;
 
         target = GameObject.Find(name == "Chicken1" ? "Chicken2" : "Chicken1");
     }
