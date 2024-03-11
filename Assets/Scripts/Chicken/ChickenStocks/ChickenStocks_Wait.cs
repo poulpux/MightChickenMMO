@@ -16,19 +16,25 @@ public partial class ChickenStocks
     }
     protected virtual void onWaitFixedUpdate()
     {
-        if(distanceOk())
-            waitTimer += Time.deltaTime;
-        else
-            waitTimer = 0;  
+        Timer();
 
         if (waitTimer > CM.stats.basicAttackCldwn)
             BasicAttack();
-
     }
 
     protected virtual void onWaitExit()
     {
 
+    }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    private void Timer()
+    {
+        if (distanceOk())
+            waitTimer += Time.deltaTime;
+        else
+            waitTimer = 0;
     }
 
     private bool distanceOk()
