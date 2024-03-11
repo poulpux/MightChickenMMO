@@ -29,7 +29,7 @@ public class testRealTimeFireBase : MonoBehaviour
     private void Awake()
     {
         dbRef = FirebaseDatabase.DefaultInstance.RootReference;
-        SaveClassData(familier, "pop/fsdf");
+        //SaveClassData(familier, "pop/fsdf");
     }
 
     //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -37,10 +37,13 @@ public class testRealTimeFireBase : MonoBehaviour
     public void SaveDataFn()
     {
         string json = JsonUtility.ToJson(dts);
-        dbRef.Child("users").Child(userId).Child("StatsPrincipales").SetRawJsonValueAsync(json);
-        
-        string json2 = JsonUtility.ToJson(familier);
-        dbRef.Child("users").Child(userId).Child("StatsSecondaires").SetRawJsonValueAsync(json2);
+        dbRef.Child("users").Child(userId).SetRawJsonValueAsync(json);
+
+        //string json = JsonUtility.ToJson(dts);
+        //dbRef.Child("users").Child(userId).Child("StatsPrincipales").SetRawJsonValueAsync(json);
+
+        //string json2 = JsonUtility.ToJson(familier);
+        //dbRef.Child("users").Child(userId).Child("StatsSecondaires").SetRawJsonValueAsync(json2);
     }
 
     public void LoadDataFn()
