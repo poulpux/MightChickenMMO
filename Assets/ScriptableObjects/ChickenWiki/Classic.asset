@@ -15,6 +15,7 @@ MonoBehaviour:
   pv: 550
   spd: 20
   weight: 1.9
-  radius: 0.5
+  radius: 1
   gravType: 0
   sprite: {fileID: 0}
+  jumpForce: 6

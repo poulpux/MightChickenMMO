@@ -3,15 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ChickenManager))]
 [RequireComponent(typeof(Rigidbody2D))]
 public partial class ChickenStocks : StateManager
 {
-    private GameObject target;
-    private Rigidbody2D rb;
+    private ChickenManager CM;
 
-    [Header("======Stats======")]
-    [Space(10)]
-    [SerializeField] float spdRotation, timeToFlip; 
     protected override void Awake()
     {
         base.Awake();
@@ -34,6 +31,7 @@ public partial class ChickenStocks : StateManager
         base.FixedUpdate();
 
         FlipFromEnnemy();
+        LookAtEnnemy();
     }
 
     private void InstantiateAll()
@@ -45,22 +43,22 @@ public partial class ChickenStocks : StateManager
         skill2.InitState(onSkill2Enter, onSkill2Update, onSkill2FixedUpdate, onSkill2Exit);
         ForcedCurrentState(wait);
 
-        target = GameObject.Find(name == "Chicken1" ? "Chicken2" : "Chicken1");
-        rb = target.GetComponent<Rigidbody2D>();    
+        CM = GetComponent<ChickenManager>();
     }
 
     protected void LookAtEnnemy()
     {
-        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f), 0.2f * Time.deltaTime);
+        transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0f), CM.rotationSpd * Time.deltaTime);
     }
 
     private void FlipFromEnnemy()
     {
-        transform.eulerAngles = new Vector3(transform.eulerAngles.x, CherchSideToFlip(), transform.eulerAngles.z);
+
+        CM.eyeRotator.transform.localEulerAngles = Vector3.Lerp(CM.eyeRotator.transform.localEulerAngles, new Vector3(0f, CherchSideToFlip(), 0f), 5f*Time.deltaTime);
     }
 
     private float CherchSideToFlip()
     {
-        return target.transform.position.x < transform.position.x ? 180f : 0f;
+        return CM.target.transform.position.x < transform.position.x ? 180f : 0f;
     }
 }

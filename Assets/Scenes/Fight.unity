@@ -144,12 +144,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229644848}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32, y: 0, z: -0.31}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32000017, y: 0, z: -0.31}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 569254699}
+  m_Father: {fileID: 1328520802}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &229644850
 SpriteRenderer:
@@ -356,8 +356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2106000e3c4f2334fb9f9e749bfbe702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leg: {fileID: 856498514}
-  jumpForce: 6
 --- !u!114 &569254697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,8 +368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e2eaf0bcfac5a439241f8aa3d19c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spdRotation: 0.2
-  timeToFlip: 0
 --- !u!114 &569254698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +381,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 11400000, guid: dbfac9f860e58d647ac9bb07c1d476e4, type: 2}
+  rotationSpd: 0.2
+  eyeRotator: {fileID: 1328520801}
+  leg: {fileID: 856498514}
+  target: {fileID: 0}
 --- !u!4 &569254699
 Transform:
   m_ObjectHideFlags: 0
@@ -393,15 +393,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 569254692}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 856498518}
-  - {fileID: 229644849}
+  - {fileID: 1328520802}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &856498514
 GameObject:
   m_ObjectHideFlags: 0
@@ -766,6 +766,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1328520801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1328520802}
+  m_Layer: 3
+  m_Name: EyesRotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1328520802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328520801}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 229644849}
+  m_Father: {fileID: 569254699}
+  m_LocalEulerAnglesHint: {x: -180, y: 0, z: 180}
 --- !u!1 &1357715080
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,12 +823,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357715080}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32, y: 0, z: -0.31}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32000017, y: 0, z: -0.31}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1705717053}
+  m_Father: {fileID: 2061985351}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1357715082
 SpriteRenderer:
@@ -1005,7 +1037,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1725342735}
-  - {fileID: 1357715081}
+  - {fileID: 2061985351}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1705717054
@@ -1021,6 +1053,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 11400000, guid: dbfac9f860e58d647ac9bb07c1d476e4, type: 2}
+  rotationSpd: 0.2
+  eyeRotator: {fileID: 2061985350}
+  leg: {fileID: 1725342734}
+  target: {fileID: 0}
 --- !u!114 &1705717056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,8 +1069,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2106000e3c4f2334fb9f9e749bfbe702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leg: {fileID: 1725342734}
-  jumpForce: 6
 --- !u!114 &1705717057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,8 +1081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e2eaf0bcfac5a439241f8aa3d19c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spdRotation: 0.2
-  timeToFlip: 0
 --- !u!1 &1720419272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1454,6 +1486,38 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &2061985350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2061985351}
+  m_Layer: 3
+  m_Name: EyeRotator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2061985351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061985350}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1357715081}
+  m_Father: {fileID: 1705717053}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2095647969
 GameObject:
   m_ObjectHideFlags: 0

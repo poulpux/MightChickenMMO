@@ -5,7 +5,7 @@ using UnityEngine;
 public partial class ChickenStocks
 {
     State wait = new State();
-
+    private float timerBefAtt;
     protected virtual void onWaitEnter()
     {
        

@@ -17,8 +17,6 @@ public partial class ChickenBasic
     protected override void onWaitFixedUpdate()
     {
         base.onWaitFixedUpdate();
-
-        LookAtEnnemy();
     }
 
     protected override void onWaitExit()
