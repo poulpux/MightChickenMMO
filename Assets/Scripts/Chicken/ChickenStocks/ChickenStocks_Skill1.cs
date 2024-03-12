@@ -6,16 +6,20 @@ public partial class ChickenStocks
 {
     State skill1 = new State();
 
-    private void onSkill1Enter()
+    protected virtual void onSkill1Enter()
     {
        
     }
-    private void onSkill1Update()
+    protected virtual void onSkill1Update()
+    {
+
+    }
+    protected virtual void onSkill1FixedUpdate()
     {
 
     }
 
-    private void onSkill1Exit()
+    protected virtual void onSkill1Exit()
     {
 
     }

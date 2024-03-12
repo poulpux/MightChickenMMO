@@ -14,6 +14,10 @@ public partial class ChickenStocks
     {
 
     }
+    private void onJumpFixedUpdate()
+    {
+
+    }
 
     private void onJumpExit()
     {

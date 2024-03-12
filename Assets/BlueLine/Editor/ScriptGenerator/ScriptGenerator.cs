@@ -81,7 +81,7 @@ public static class ScriptGenerator
         {
             string upperChildName = Tools.firstLetterToUpper(item);
             string lowerChildName = Tools.firstLetterToLower(item);
-            startContent += "\r\n        "+ lowerChildName + ".InitState(on"+ upperChildName + "Enter, on"+ upperChildName + "Update, on"+ upperChildName + "Exit); ";
+            startContent += "\r\n        "+ lowerChildName + ".InitState(on"+ upperChildName + "Enter, on"+ upperChildName + "Update,on"+upperChildName+ "FixedUpdate, on" + upperChildName + "Exit); ";
         }
         return
             "using System.Collections;" +
@@ -89,6 +89,11 @@ public static class ScriptGenerator
             "\r\nusing UnityEngine;" +
             "\r\n\r\n\r\npublic partial class " + upperFamilyName + " : StateManager" +
             "\r\n{" +
+
+            "\r\n\r\n    protected override void Awake()" +
+            "\r\n    {" +
+             "\r\n        base.Awake();" +
+            "\r\n    }" +
             "\r\n\r\n    protected override void Start()" +
             "\r\n    {" +
             "\r\n        base.Start();" +
@@ -99,6 +104,11 @@ public static class ScriptGenerator
             "\r\n\r\n    protected override void Update()" +
             "\r\n    {" +
             "\r\n        base.Update();" +
+            "\r\n    }" +
+        
+            "\r\n\r\n    protected override void FixedUpdate()" +
+            "\r\n    {" +
+            "\r\n        base.FixedUpdate();" +
             "\r\n    }" +
             "\r\n}";
     }
@@ -122,7 +132,11 @@ public static class ScriptGenerator
             "\r\n    private void on"+ upperChildName + "Update()" +
             "\r\n    {" +
             "\r\n\r\n    }" +
-            "\r\n\r\n    private void on"+ upperChildName + "Exit()" +
+
+            "\r\n    private void on" + upperChildName + "FixedUpdate()" +
+            "\r\n    {" +
+            "\r\n\r\n    }" +
+            "\r\n\r\n    private void on" + upperChildName + "Exit()" +
             "\r\n    {" +
             "\r\n\r\n    }" +
             "\r\n}";

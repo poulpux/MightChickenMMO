@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Chicken
   - Water
   - UI
   - 
@@ -40,4 +40,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1011221689
+    locked: 0
+  - name: Mainground
+    uniqueID: 735474975
+    locked: 0
+  - name: Foreground
+    uniqueID: 1440902135
     locked: 0

@@ -6,16 +6,20 @@ public partial class ChickenStocks
 {
     State getUp = new State();
 
-    private void onGetUpEnter()
+    protected virtual void onGetUpEnter()
     {
        
     }
-    private void onGetUpUpdate()
+    protected virtual void onGetUpUpdate()
+    {
+
+    }
+    protected virtual void onGetUpFixedUpdate()
     {
 
     }
 
-    private void onGetUpExit()
+    protected virtual void onGetUpExit()
     {
 
     }

@@ -19,5 +19,14 @@ public class ChickenObject : ScriptableObject
 
     public Sprite sprite;
 
+    [Header("======BasicAttack======")]
+    [Space(10)]
+    public float basicAttackDist;
+    public float basicAttackCldwn;
+    public float basicAttackForce;
+
+    [Header("======Jump======")]
+    [Space(10)]
+    public float jumpForce;
     //PASSIFS & ACTIFS
 }
